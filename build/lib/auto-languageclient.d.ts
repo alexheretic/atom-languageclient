@@ -107,6 +107,8 @@ export default class AutoLanguageClient {
      * @return false => message will not be sent to the language server
      */
     protected filterChangeWatchedFiles(_filePath: string): boolean;
+    /** @return false => servers will be killed without awaiting shutdown response. */
+    protected shutdownServersGracefully(): boolean;
     /**
      * Called on language server stderr output.
      * @param stderr a chunk of stderr from a language server instance

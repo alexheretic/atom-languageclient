@@ -30,6 +30,7 @@ export declare class ServerManager {
     private _changeWatchedFileFilter;
     private _reportBusyWhile;
     private _languageServerName;
+    private _stopServersGracefully;
     private _activeServers;
     private _startingServerPromises;
     private _restartCounterPerProject;
@@ -38,7 +39,7 @@ export declare class ServerManager {
     private _editorToServer;
     private _normalizedProjectPaths;
     private _isStarted;
-    constructor(_startServer: (projectPath: string) => Promise<ActiveServer>, _logger: Logger, _startForEditor: (editor: TextEditor) => boolean, _changeWatchedFileFilter: (filePath: string) => boolean, _reportBusyWhile: ReportBusyWhile, _languageServerName: string);
+    constructor(_startServer: (projectPath: string) => Promise<ActiveServer>, _logger: Logger, _startForEditor: (editor: TextEditor) => boolean, _changeWatchedFileFilter: (filePath: string) => boolean, _reportBusyWhile: ReportBusyWhile, _languageServerName: string, _stopServersGracefully: boolean);
     startListening(): void;
     stopListening(): void;
     private observeTextEditors;
