@@ -5,6 +5,12 @@ import { EventEmitter } from 'events';
 import { Logger } from './logger';
 import { CompositeDisposable, FilesystemChangeEvent, TextEditor } from 'atom';
 import { ReportBusyWhile } from './utils';
+/**
+ * Public: Defines the minimum surface area for an object that resembles a
+ * ChildProcess.  This is used so that language packages with alternative
+ * language server process hosting strategies can return something compatible
+ * with AutoLanguageClient.startServerProcess.
+ */
 export interface LanguageServerProcess extends EventEmitter {
     stdin: stream.Writable;
     stdout: stream.Readable;
@@ -14,6 +20,7 @@ export interface LanguageServerProcess extends EventEmitter {
     on(event: 'error', listener: (err: Error) => void): this;
     on(event: 'exit', listener: (code: number, signal: string) => void): this;
 }
+/** The necessary elements for a server that has started or is starting. */
 export interface ActiveServer {
     disposable: CompositeDisposable;
     projectPath: string;
@@ -23,6 +30,10 @@ export interface ActiveServer {
     additionalPaths: Set<string>;
     considerDefinitionPath(path: string): void;
 }
+/**
+ * Manages the language server lifecycles and their associated objects necessary
+ * for adapting them to Atom IDE.
+ */
 export declare class ServerManager {
     private _startServer;
     private _logger;
