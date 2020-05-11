@@ -5,6 +5,16 @@
 
 Provide integration support for adding Language Server Protocol servers to Atom.
 
+## Fork
+This fork contains proposed changes to upstream developed for [ide-rust](https://github.com/rust-lang/atom-ide-rust).
+
+Use by referring to the build branch in your package.json:
+```json
+"dependencies": {
+  "atom-languageclient": "github:alexheretic/atom-languageclient#build",
+}
+```
+
 ## Background
 
 [Language Server Protocol (LSP)](https://microsoft.github.io/language-server-protocol/) is a JSON-RPC based mechanism whereby a client (IDE) may connect to an out-of-process server that can provide rich analysis, refactoring and interactive features for a given programming language.
@@ -158,7 +168,7 @@ If you want to switch back to the production version of atom-languageclient type
 
 We have various unit tests and some linter rules - you can run both of these locally using `npm test` to ensure your CI will get a clean build.
 
-### Guidance 
+### Guidance
 
 Always feel free to help out!  Whether it's [filing bugs and feature requests](https://github.com/atom/atom-languageclient/issues/new) or working on some of the [open issues](https://github.com/atom/atom-languageclient/issues), Atom's [contributing guide](https://github.com/atom/atom/blob/master/CONTRIBUTING.md) will help get you started while the [guide for contributing to packages](https://github.com/atom/atom/blob/master/docs/contributing-to-packages.md) has some extra information.
 
