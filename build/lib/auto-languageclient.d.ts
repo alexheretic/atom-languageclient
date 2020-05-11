@@ -102,6 +102,7 @@ export default class AutoLanguageClient {
     protected getSuggestions(request: ac.SuggestionsRequestedEvent): Promise<ac.AnySuggestion[]>;
     protected getSuggestionDetailsOnSelect(suggestion: ac.AnySuggestion): Promise<ac.AnySuggestion | null>;
     protected onDidConvertAutocomplete(_completionItem: ls.CompletionItem, _suggestion: ac.AnySuggestion, _request: ac.SuggestionsRequestedEvent): void;
+    private handleAdditionalTextEdits;
     protected onDidInsertSuggestion(_arg: ac.SuggestionInsertedEvent): void;
     provideDefinitions(): atomIde.DefinitionProvider;
     protected getDefinition(editor: TextEditor, point: Point): Promise<atomIde.DefinitionQueryResult | null>;

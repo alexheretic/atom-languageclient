@@ -106,7 +106,7 @@ export default class Convert {
      * @param textEdits The language server protocol {TextEdit} objects to convert.
      * @returns An {Array} of Atom {TextEdit} objects.
      */
-    static convertLsTextEdits(textEdits: ls.TextEdit[] | null): TextEdit[];
+    static convertLsTextEdits(textEdits?: ls.TextEdit[] | null): TextEdit[];
     /**
      * Public: Convert a language server protocol {TextEdit} object to the
      * Atom equivalent {TextEdit}.
