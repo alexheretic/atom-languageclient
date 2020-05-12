@@ -1,5 +1,5 @@
-/// <reference path="../../typings/atom/index.d.ts" />
-/// <reference path="../../typings/atom-ide/index.d.ts" />
+/// <reference types="typings/atom" />
+/// <reference types="typings/atom-ide" />
 import AutoLanguageClient from './auto-languageclient';
 import Convert from './convert';
 import { Logger, ConsoleLogger, FilteredLogger } from './logger';

@@ -243,7 +243,7 @@ export declare class LanguageClientConnection extends EventEmitter {
      * @returns A {Promise} containing an {Array} of {Commands}s that can be performed against the given
      *   documents range.
      */
-    codeAction(params: lsp.CodeActionParams): Promise<Array<lsp.Command | lsp.CodeAction>>;
+    codeAction(params: lsp.CodeActionParams): Promise<(lsp.Command | lsp.CodeAction)[]>;
     /**
      * Public: Send a `textDocument/codeLens` request.
      *
