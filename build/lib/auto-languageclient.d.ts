@@ -129,6 +129,13 @@ export default class AutoLanguageClient {
     protected getCodeHighlight(editor: TextEditor, position: Point): Promise<Range[] | null>;
     provideCodeActions(): atomIde.CodeActionProvider;
     protected getCodeActions(editor: TextEditor, range: Range, diagnostics: atomIde.Diagnostic[]): Promise<atomIde.CodeAction[] | null>;
+    /** Optionally filter code action before they're displayed */
+    protected filterCodeActions(actions: (ls.Command | ls.CodeAction)[]): (ls.Command | ls.CodeAction)[];
+    /**
+     * Optionally handle a code action before default handling.
+     * Return false to prevent default handling, true to continue with default handling.
+     */
+    protected onApplyCodeActions(_action: ls.Command | ls.CodeAction): Promise<boolean>;
     provideRefactor(): atomIde.RefactorProvider;
     protected getRename(editor: TextEditor, position: Point, newName: string): Promise<Map<string, atomIde.TextEdit[]> | null>;
     consumeSignatureHelp(registry: atomIde.SignatureHelpRegistry): Disposable;

@@ -1,6 +1,6 @@
 import * as atomIde from 'atom-ide';
 import LinterPushV2Adapter from './linter-push-v2-adapter';
-import { LanguageClientConnection, ServerCapabilities } from '../languageclient';
+import { CodeAction, Command, LanguageClientConnection, ServerCapabilities } from '../languageclient';
 import { Range, TextEditor } from 'atom';
 export default class CodeActionAdapter {
     /**
@@ -20,7 +20,7 @@ export default class CodeActionAdapter {
      *   This is typically a list of diagnostics intersecting `range`.
      * @returns A {Promise} of an {Array} of {atomIde$CodeAction}s to display.
      */
-    static getCodeActions(connection: LanguageClientConnection, serverCapabilities: ServerCapabilities, linterAdapter: LinterPushV2Adapter | undefined, editor: TextEditor, range: Range, diagnostics: atomIde.Diagnostic[]): Promise<atomIde.CodeAction[]>;
+    static getCodeActions(connection: LanguageClientConnection, serverCapabilities: ServerCapabilities, linterAdapter: LinterPushV2Adapter | undefined, editor: TextEditor, range: Range, diagnostics: atomIde.Diagnostic[], filterActions: (actions: (Command | CodeAction)[]) => (Command | CodeAction)[], onApply: (action: (Command | CodeAction)) => Promise<boolean>): Promise<atomIde.CodeAction[]>;
     private static createCodeAction;
     private static applyWorkspaceEdit;
     private static executeCommand;
